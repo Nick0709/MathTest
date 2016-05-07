@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Проверка знаний по математике</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="document.mathTest.init()">
+    <div id="tabs">
+        <ul>
+            <li><a href="#exersise">Проверка</a></li>
+            <li><a href="#setup">Установка</a></li>
+            <li><a href="#result">Результат тестирования</a></li>
+        </ul>
+        
+        <form id="exersise">
+            <p>Правильных ответов: <span id="correctAnswers" class="correctAnswers"></span></p>
+            <p>Ошибок: <span id="wrongAnswers"></span></p>
+            <p id="question">99-10=?</p>
+            <div class="position">
+                <p>Ваш ответ:</p>
+                <input type="text" title="Введите ответ" id="answer" onkeydown="" />
+                <input type="button" value="Проверить" id="tryAnswerBtn" onclick="document.mathTest.tryAnswer()" />
+            </div>
+            <table class="table_add_buttons">
+                <tr>
+                    <td>
+                        <p>
+                            <a href="#modal1" class="open_modal" onclick="document.mathTest.modal()"><img src="image/add.png" alt="Сохранить" title="Сохранить результат ученика" /></a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        <!-- modal window -->
+        <form id="modal_form">
+            <span id="modal_close" onclick="document.mathTest.closeModal()">X</span>
+            <!-- close window -->
+            <input type="text" name="nameUser" value="Ваше Имя" class="nameUser" id="nameUser" />
+            <input type="date" name="dateFill" id="dateFill" />
+            <div class="saveOutcome">
+                <a href="#" class="main_bold_font"><img src="image/save.png" alt="Сохранить" title="Сохранить результат ученика" /></a>
+            </div>
+        </form>
+        <div id="overlay"></div>
+
+        <form id="setup">
+            <p>Доступные операции</p>
+            <input type="checkbox" id="addCheckbox" onclick="document.mathTest.setOperation(this)" />Сложение
+            <br>
+            <input type="checkbox" id="subCheckbox" onclick="document.mathTest.setOperation(this)" />Вычитание
+            <br>
+            <input type="checkbox" id="mulCheckbox" onclick="document.mathTest.setOperation(this)" />Умножение
+            <br>
+            <input type="checkbox" id="divCheckbox" onclick="document.mathTest.setOperation(this)" />Деление
+            <br>
+        </form>
+        
+        <form action="" id="result">
+            <div class="test__user__name__table">
+                <table border="1" id="user__test">
+                    <tr class="color_th">
+                        <th rowspan="2">
+                            <p>Тестируемые ученики (имя)</p>
+                        </th>
+                        <th colspan="8">
+                            <p>Проведённые тесты</p>
+                        </th>
+                    </tr> 
+                    <tr class="color_th">
+                        <th>
+                            <p>дата</p>
+                        </th>
+                        <th>
+                            <p>типы примеров</p>
+                        </th>
+                        <th>
+                            <p>кол-во правильных</p>
+                        </th>
+                        <th>
+                            <p>% правильных ответов</p>
+                        </th>
+                        <th>
+                            <p>кол-во неправильных</p>
+                        </th>
+                        <th colspan="2">
+                            <p>неправильные примеры</p>
+                        </th>
+                        <th>
+                            <p>удалить учетную запись</p>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/redmond/jquery-ui.css" type="text/css">
+    <script src="js/dataTable.js"></script>
+    <script src="js/mathtest.js"></script>
+
+</body>
+</html>
